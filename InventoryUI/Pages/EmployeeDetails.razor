@@ -1,0 +1,66 @@
+﻿@page "/employeedetails"
+@inherits EmployeeDetailsBase
+<h3>Employee Details</h3>
+<form>
+
+
+<div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="ProductName" class="control-label">Employee ID</label>
+                <input for="ProductName" class="form-control" @bind="@employee.empid" />
+            </div>
+            <div class="form-group">
+               <label for="ProductName" class="control-label">Employee Name</label>
+                <input for="ProductName" class="form-control" @bind="@employee.name" />
+            </div>
+            <div class="form-group">
+                <label for="ProductName" class="control-label">Employee Salary</label>
+                <input for="ProductName" class="form-control" @bind="@employee.sal" />
+            </div>
+            <div class="form-group">
+               <label for="ProductName" class="control-label">Dept No</label>
+                <input for="ProductName" class="form-control" @bind="@employee.deptno" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="button" class="btn btn-primary" @onclick="@InsertEmployee" value="Add Employee" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+@if (employeeList == null)
+    {
+        <h3>Please wait, Loading the data.</h3>
+    }
+    else
+    {
+        <table class='table'>
+            <thead>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Name</th>
+                    <th>Salary</th>
+                    <th>Dept No</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in employeeList)
+                {
+                    <tr>
+                        <td>@emp.empid</td>
+                        <td>@emp.name</td>
+                        <td>@emp.sal</td>
+                        <td>@emp.deptno</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    </form>
+@code {
+    
+}
